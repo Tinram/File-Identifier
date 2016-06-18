@@ -7,7 +7,7 @@
 
 ## Purpose
 
-- Detect a file's type as through MIME type information and file signature (header) bytes (ignoring file extensions).
+- Detect a file's type through MIME type information and file signature (header) bytes (file extensions are ignored).
 
 
 ## Uses:
