@@ -1,6 +1,6 @@
 <?php
 
-class FileSignatures
+final class FileSignatures
 {
     /**
         * Static class to hold an array of file signature hex bytes.
@@ -75,9 +75,9 @@ class FileSignatures
         'WMA / WMV' => '30 26 b2 75 8e 66 cf',
         'WMF' => 'd7 cd c6 9a',
         'XPM' => '2f 2a 20 58 50 4d',
-        'ZIP' => '50 4B 03 04',
-        'ZIP (empty)' => '50 4B 05 06',
-        'ZIP (spanned)' => '50 4B 07 08',
+        'ZIP' => '50 4b 03 04',
+        'ZIP (empty)' => '50 4b 05 06',
+        'ZIP (spanned)' => '50 4b 07 08',
 
         /* GPG and file ciphers, source: my analysis */
         'GnuPG (IDEA)' => '8c 0d 04 01',
@@ -87,10 +87,10 @@ class FileSignatures
         'GnuPG (AES)' => '8c 0d 04 07',
         'GnuPG (AES192)' => '8c 0d 04 08',
         'GnuPG (AES256)' => '8c 0d 04 09',
-        'GnuPG (Twofish)' => '8c 0d 04 0A',
-        'GnuPG (Camellia128)' => '8c 0d 04 0B',
-        'GnuPG (Camellia192)' => '8c 0d 04 0C',
-        'GnuPG (Camellia256)' => '8c 0d 04 0D'
+        'GnuPG (Twofish)' => '8c 0d 04 0a',
+        'GnuPG (Camellia128)' => '8c 0d 04 0b',
+        'GnuPG (Camellia192)' => '8c 0d 04 0c',
+        'GnuPG (Camellia256)' => '8c 0d 04 0d'
     ];
 
 

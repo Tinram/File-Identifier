@@ -6,7 +6,7 @@ namespace CopySense\FileIdentifier;
 use RuntimeException;
 
 
-class FileIdentifier
+final class FileIdentifier
 {
     /**
         * Class to identify a file through MIME type and file signature bytes.
@@ -23,7 +23,7 @@ class FileIdentifier
         *
         * @author        Martin Latter <copysense.co.uk>
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.20
+        * @version       0.21
         * @license       GNU GPL v3.0
         * @link          https://github.com/Tinram/File-Identifier.git
         * @throws        RuntimeException
@@ -37,13 +37,16 @@ class FileIdentifier
     private $aResults = ['mimeinfo' => null, 'fileinfo' => null];
 
     /* @var string message */
+    private $sMimeTypeInfo = 'File MIME type: ';
+
+    /* @var string message */
     private $sNoMimeInfo = 'No MIME type information.';
 
     /* @var string message */
     private $sFileMatch = 'File match found: ';
 
     /* @var string message */
-    private $sNoFileMatch = 'No file match found.'; 
+    private $sNoFileMatch = 'No file match found.';
 
     /* @var string */
     private $sBytes = '';
@@ -100,14 +103,15 @@ class FileIdentifier
             }
             else if ( ! is_file($this->sFileName))
             {
-                throw new RuntimeException($this->sFileName . ' specified is not a normal file.');
+                throw new RuntimeException($this->sFileName . ' is not a normal file.');
             }
             else if (filesize($this->sFileName) < 4)
             {
                 throw new RuntimeException('The size of the file: ' . $this->sFileName . ' is too small to analyze.');
             }
         }
-        catch (RuntimeException $e) {
+        catch (RuntimeException $e)
+        {
             self::reportException($e);
             return;
         }
@@ -156,7 +160,7 @@ class FileIdentifier
 
                 if ( ! is_array($aSignatures))
                 {
-                    throw new RuntimeException('The file signature class data is not an array.');
+                    throw new RuntimeException('The file signature data is not an array.');
                 }
             }
         }
@@ -166,11 +170,11 @@ class FileIdentifier
         }
 
 
-        /* use PHP file MIME analysis if available (php_fileinfo module) */
+        /* use PHP file MIME analysis if 'php_fileinfo' module available and enabled */
         if (function_exists('finfo_file'))
         {
             $rFileInfo = finfo_open(FILEINFO_MIME_TYPE);
-            $sMimeInfo .= 'File MIME type: ' . finfo_file($rFileInfo, $this->sFileName);
+            $sMimeInfo .= $this->sMimeTypeInfo . finfo_file($rFileInfo, $this->sFileName);
             finfo_close($rFileInfo);
         }
 
