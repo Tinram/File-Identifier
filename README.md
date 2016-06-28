@@ -2,7 +2,7 @@
 # File Identifier
 
 
-#### Identify a file through MIME type and file signature bytes.
+#### Identify a file through MIME type and file signature detection.
 
 
 ## Purpose
@@ -16,11 +16,11 @@
 
 However, this command is not always available.
 
-The main uses of the File Identifier class are:
+The main uses of *File Identifier* are:
 
 * For *nix servers where PHP shell functions are disabled in php.ini ( `disable_functions=` )
 * PHP running on Windows, where no `file` command natively exists
-* When older versions of `file` (e.g. v.5.09) are installed on the *nix server, and which do not recognise some files such as .gpg
+* When older versions of `file` (e.g. v. 5.09) are installed on the *nix server, and which do not recognise some files such as .gpg
 * Where custom, old, or rare file types cannot be identified by the `file` command.
 
 
@@ -30,14 +30,14 @@ The main uses of the File Identifier class are:
     require('filesignatures.class.php');
 
     use CopySense\FileIdentifier\FileIdentifier;
-    $f = new FileIdentifier('x.png');
+    $f = new FileIdentifier('mira.png');
     $r = $f->getResult();
     echo $r['mimeinfo'] . PHP_EOL . $r['fileinfo'];
 
 
 ## File Signatures
 
-The file signature data (filesignatures.class.php) contains a limited range of common file type signatures in hexadecimal bytes.  This data array can be easily extended with additional and custom file signatures.
+The file signature data (filesignatures.class.php) contain a limited range of common file type signatures in hexadecimal bytes.  This data array can be easily extended with additional and custom file signatures.
 
 
 ### License

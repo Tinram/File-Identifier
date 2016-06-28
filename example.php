@@ -13,7 +13,7 @@ require('filesignatures.class.php');
 use CopySense\FileIdentifier\FileIdentifier;
 
 
-$oFileCheck = new FileIdentifier('ascii.txt.gpg');
+$oFileCheck = new FileIdentifier('mira.png');
 $aResult = $oFileCheck->getResult();
 
 
