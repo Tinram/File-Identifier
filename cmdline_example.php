@@ -2,7 +2,7 @@
 <?php
 
 /**
-    * Example command-line usage of FileIdentifier class.
+    * Command-line example usage of FileIdentifier class.
     *
     * Usage:
     *        php -f <thisfilename> <filename>
@@ -10,15 +10,15 @@
     *
     * @author        Martin Latter <copysense.co.uk>
     * @copyright     Martin Latter 15/06/2016
-    * @version       0.11
+    * @version       0.12
     * @license       GNU GPL v3.0
     * @link          https://github.com/Tinram/File-Identifier.git
 */
 
 
 ###################################################
-require('fileidentifier.class.php');
-require('filesignatures.class.php');
+require('classes/fileidentifier.class.php');
+require('classes/filesignatures.class.php');
 ###################################################
 
 
@@ -43,8 +43,7 @@ else
     $oFileCheck = new FileIdentifier($sFile);
     $aResult = $oFileCheck->getResult();
 
+    echo $sFile . ':' . PHP_EOL;
     echo $aResult['mimeinfo'] . PHP_EOL;
     echo $aResult['fileinfo'] . PHP_EOL;
 }
-
-?>

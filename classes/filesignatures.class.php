@@ -105,4 +105,4 @@ final class FileSignatures
         return self::$aSignatures;
     }
 
-} # end {}
+} /* end {} */

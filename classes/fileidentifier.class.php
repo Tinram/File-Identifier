@@ -14,8 +14,8 @@ final class FileIdentifier
         * Coded to PHP 5.4+
         *
         * Example usage:
-        *                require('fileidentifier.class.php');
-        *                require('filesignatures.class.php');
+        *                require('classes/fileidentifier.class.php');
+        *                require('classes/filesignatures.class.php');
         *                use CopySense\FileIdentifier\FileIdentifier;
         *                $f = new FileIdentifier('x.png');
         *                $r = $f->getResult();
@@ -23,7 +23,7 @@ final class FileIdentifier
         *
         * @author        Martin Latter <copysense.co.uk>
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.21
+        * @version       0.22
         * @license       GNU GPL v3.0
         * @link          https://github.com/Tinram/File-Identifier.git
         * @throws        RuntimeException
@@ -122,7 +122,7 @@ final class FileIdentifier
 
         $this->aResults = $this->process($this->sClassName);
 
-    } # end loadFile()
+    } /* end loadFile() */
 
 
     /**
@@ -217,7 +217,7 @@ final class FileIdentifier
 
         return $aParseResults;
 
-    } # end fileProcess()
+    } /* end fileProcess() */
 
 
     /**
@@ -231,4 +231,4 @@ final class FileIdentifier
         echo $e->getMessage() . PHP_EOL . '(' . $e->getfile() . ', line ' . $e->getline() . ')' . PHP_EOL;
     }
 
-} # end {}
+} /* end {} */
