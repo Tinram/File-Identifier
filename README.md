@@ -7,14 +7,16 @@
 
 ## Purpose
 
-+ Detect a file's type through MIME type information and file signature (header) bytes (file extensions are ignored).
+Detect a file's type through MIME type information and file signature (header) bytes.
+
+(File extensions are ignored.)
 
 
 ## Uses
 
 *nix systems have the `file` command, which is a powerful file identifier, and callable from PHP's shell functions.
 
-However, this command is not always available.
+Nevertheless, this command is not always available.
 
 The main uses of **File Identifier** are:
 
