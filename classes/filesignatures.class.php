@@ -7,7 +7,7 @@ final class FileSignatures
         *
         * @author        Martin Latter <copysense.co.uk>
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.10
+        * @version       0.11
         * @license       GNU GPL v3.0
         * @link          https://github.com/Tinram/File-Identifier.git
     */
@@ -29,11 +29,13 @@ final class FileSignatures
         'CAB' => '4d 53 43 46',
         'compressed (LZW)' => '1f 9d',
         'compressed (LZH)' => '1f a0',
+        'cpio' => 'c7 71 14 00 fc',
         'CR2 (Canon RAW)' => '49 49 2a 00 10 00 00 00 43 52',
         'dat' => '50 4d 4f 43 43 4d 4f 43',
         'dex (Dalvic)' => '64 65 78 0a 30 33 35 00',
         'EXE (MZ: DOS / Windows)' => '4d 5a',
-        'EXE (ELF: *nix)' => '7f 45 4c 46',
+        'EXE (ELF x32: *nix)' => '7f 45 4c 46 01',
+        'EXE (ELF x64: *nix)' => '7f 45 4c 46 02',
         'flac' => '66 4c 61 43',
         'FLV' => '46 4c 56',
         'GIF87a' => '47 49 46 38 37 61',
@@ -51,7 +53,7 @@ final class FileSignatures
         'MP3 (ID3)' => '49 44 33',
         'MP4' => '00 00 00 18 66 74 79 70 6d 70 34 32',
         'msi (MS installer)' => 'd0 cf 11 e0 a1 b1 1a e1',
-        'MS Office (legacy)' => 'd0 cf 11 e0 a1 b1 1a e1',
+        'MS Office (legacy)' => 'd0 cf 11 e0 a1 b1 1a e1', /* same as .msi, confirmed */
         'MS Office (2010+)' => '50 4b 03 04',
         'obj' => '4c 01',
         'Ogg' => '4F 67 67 53',
@@ -68,6 +70,7 @@ final class FileSignatures
         'SWF' => '43 57 53',
         'TAR' => '75 73 74 61 72 00 30 30',
         'TAR2' => '75 73 74 61 72 20 20 00',
+        'tcpdump (v.2)' => 'd4 c3 b2 a1 02',
         'TGA' => '01 00 0a 00 00 00 00 18',
         'TIFF (LE)' => '49 49 2a 00',
         'TIFF (BE) / NEF (Nikon)' => '4d 4d 00 2a',
