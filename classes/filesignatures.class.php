@@ -7,7 +7,7 @@ final class FileSignatures
         *
         * @author        Martin Latter <copysense.co.uk>
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.11
+        * @version       0.12
         * @license       GNU GPL v3.0
         * @link          https://github.com/Tinram/File-Identifier.git
     */
@@ -22,13 +22,15 @@ final class FileSignatures
         */
 
         '7-Zip' => '37 7a bc af 27 1c',
-        'avi / wav' => '52 49 46 46',
+        'ARW (Sony RAW)' => '49 49 2a 00 08', /* one type of Sony RAW */
+        'AVI / WAV' => '52 49 46 46',
         'shell script' => '23 21',
-        'bmp' => '42 4d',
+        'BMP' => '42 4d',
         'bzip2' => '42 5a 68',
         'CAB' => '4d 53 43 46',
         'compressed (LZW)' => '1f 9d',
         'compressed (LZH)' => '1f a0',
+        'compressed (LZMA)' => '5d 00 00 80',
         'cpio' => 'c7 71 14 00 fc',
         'CR2 (Canon RAW)' => '49 49 2a 00 10 00 00 00 43 52',
         'dat' => '50 4d 4f 43 43 4d 4f 43',
@@ -52,7 +54,7 @@ final class FileSignatures
         'MP3' => 'ff fb',
         'MP3 (ID3)' => '49 44 33',
         'MP4' => '00 00 00 18 66 74 79 70 6d 70 34 32',
-        'msi (MS installer)' => 'd0 cf 11 e0 a1 b1 1a e1',
+        'MSI (MS installer)' => 'd0 cf 11 e0 a1 b1 1a e1',
         'MS Office (legacy)' => 'd0 cf 11 e0 a1 b1 1a e1', /* same as .msi, confirmed */
         'MS Office (2010+)' => '50 4b 03 04',
         'obj' => '4c 01',
@@ -66,6 +68,7 @@ final class FileSignatures
         'PST' => '21 42 44 4E 42',
         'RAR (old)' => '52 61 72 21 1a 07 00',
         'RAR (v.5+)' => '52 61 72 21 1a 07 01 00',
+        'RPM' => 'ed ab ee db',
         'RTF' => '7b 5c 72 74 66 31',
         'SWF' => '43 57 53',
         'TAR' => '75 73 74 61 72 00 30 30',
@@ -75,9 +78,11 @@ final class FileSignatures
         'TIFF (LE)' => '49 49 2a 00',
         'TIFF (BE) / NEF (Nikon)' => '4d 4d 00 2a',
         'Unicode BOM' => 'ef bb bf',
+        'WAR (Web Archive)' => '50 4b 03 04 14',
         'WMA / WMV' => '30 26 b2 75 8e 66 cf',
         'WMF' => 'd7 cd c6 9a',
         'XPM' => '2f 2a 20 58 50 4d',
+        'XZ' => 'fd 37 7a 58 5a',
         'ZIP' => '50 4b 03 04',
         'ZIP (empty)' => '50 4b 05 06',
         'ZIP (spanned)' => '50 4b 07 08',
