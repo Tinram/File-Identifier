@@ -1,16 +1,16 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 <?php
 
 /**
     * Command-line example usage of FileIdentifier class.
     *
     * Usage:
-    *        php -f <thisfilename> <filename>
+    *        php <thisfilename> <filename>
     *        ./<thisfilename> <filename>
     *
     * @author        Martin Latter <copysense.co.uk>
     * @copyright     Martin Latter 15/06/2016
-    * @version       0.12
+    * @version       0.13
     * @license       GNU GPL v3.0
     * @link          https://github.com/Tinram/File-Identifier.git
 */
@@ -25,9 +25,14 @@ require('classes/filesignatures.class.php');
 use CopySense\FileIdentifier\FileIdentifier;
 
 
-if (@ ! $_SERVER['argv'][1])
+if ( ! isset($_SERVER['argv'][1]))
 {
-    $sUsage = PHP_EOL . ' ' . basename(__FILE__, '.php') . PHP_EOL . PHP_EOL . "\tusage: php -f " . basename(__FILE__) . ' <filename>' . PHP_EOL . PHP_EOL;
+    $sUsage =
+        PHP_EOL . ' ' .
+        basename(__FILE__, '.php') .
+        PHP_EOL . PHP_EOL .
+        "\tusage: php " . basename(__FILE__) . ' <filename>' .
+        PHP_EOL . PHP_EOL;
 
     die($sUsage);
 }
