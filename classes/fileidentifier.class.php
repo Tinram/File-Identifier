@@ -23,15 +23,15 @@ final class FileIdentifier
         *
         * @author        Martin Latter <copysense.co.uk>
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.22
+        * @version       0.23
         * @license       GNU GPL v3.0
         * @link          https://github.com/Tinram/File-Identifier.git
         * @throws        RuntimeException
     */
 
 
-    /** @var integer $iFileBytesToRead number of header file bytes to read */
-    private $iFileBytesToRead = 12;
+    /* @var integer $iFileBytesToRead number of header file bytes to read */
+    private $iFileBytesToRead = 16;
 
     /* @var array results holder with null defaults - provides output separation of file MIME info and byte info */
     private $aResults = ['mimeinfo' => null, 'fileinfo' => null];
