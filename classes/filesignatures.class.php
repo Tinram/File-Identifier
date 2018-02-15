@@ -7,7 +7,7 @@ final class FileSignatures
         *
         * @author        Martin Latter <copysense.co.uk>
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.12
+        * @version       0.13
         * @license       GNU GPL v3.0
         * @link          https://github.com/Tinram/File-Identifier.git
     */
@@ -35,10 +35,11 @@ final class FileSignatures
         'CR2 (Canon RAW)' => '49 49 2a 00 10 00 00 00 43 52',
         'dat' => '50 4d 4f 43 43 4d 4f 43',
         'dex (Dalvic)' => '64 65 78 0a 30 33 35 00',
+        'epub' => '50 4B 03 04 0A 00 02 00',
         'EXE (MZ: DOS / Windows)' => '4d 5a',
         'EXE (ELF x32: *nix)' => '7f 45 4c 46 01',
         'EXE (ELF x64: *nix)' => '7f 45 4c 46 02',
-        'flac' => '66 4c 61 43',
+        'FLAC' => '66 4c 61 43',
         'FLV' => '46 4c 56',
         'GIF87a' => '47 49 46 38 37 61',
         'GIF89a' => '47 49 46 38 39 61',
@@ -53,12 +54,12 @@ final class FileSignatures
         'midi' => '4d 54 68 64',
         'MP3' => 'ff fb',
         'MP3 (ID3)' => '49 44 33',
-        'MP4' => '00 00 00 18 66 74 79 70 6d 70 34 32',
+        'MP4' => '00 00 00 18 66 74 79 70',
         'MSI (MS installer)' => 'd0 cf 11 e0 a1 b1 1a e1',
         'MS Office (legacy)' => 'd0 cf 11 e0 a1 b1 1a e1', /* same as .msi, confirmed */
         'MS Office (2010+)' => '50 4b 03 04',
         'obj' => '4c 01',
-        'Ogg' => '4F 67 67 53',
+        'OGG' => '4F 67 67 53',
         'PDF' => '25 50 44 46',
         'PHP' => '3c 3f 70 68 70',
         'PNG' => '89 50 4e 47 0d 0a 1a 0a',
@@ -70,6 +71,7 @@ final class FileSignatures
         'RAR (v.5+)' => '52 61 72 21 1a 07 01 00',
         'RPM' => 'ed ab ee db',
         'RTF' => '7b 5c 72 74 66 31',
+        'SQLite 3' => '53 51 4c 69 74 65 20 66 6f 72 6d 61 74 20 33 00',
         'SWF' => '43 57 53',
         'TAR' => '75 73 74 61 72 00 30 30',
         'TAR2' => '75 73 74 61 72 20 20 00',
@@ -77,10 +79,12 @@ final class FileSignatures
         'TGA' => '01 00 0a 00 00 00 00 18',
         'TIFF (LE)' => '49 49 2a 00',
         'TIFF (BE) / NEF (Nikon)' => '4d 4d 00 2a',
+        'TTF' => '00 01 00 00 00',
         'Unicode BOM' => 'ef bb bf',
         'WAR (Web Archive)' => '50 4b 03 04 14',
         'WMA / WMV' => '30 26 b2 75 8e 66 cf',
         'WMF' => 'd7 cd c6 9a',
+        'XCF (GIMP)' => '67 69 6d 70 20 78 63 66 20',
         'XPM' => '2f 2a 20 58 50 4d',
         'XZ' => 'fd 37 7a 58 5a',
         'ZIP' => '50 4b 03 04',
