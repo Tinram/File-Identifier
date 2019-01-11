@@ -28,10 +28,10 @@ The main uses of **File Identifier** are:
 ## Example Usage
 
 ```php
-    require('classes/fileidentifier.class.php');
-    require('classes/filesignatures.class.php');
+    require('classes/file_identifier.class.php');
+    require('classes/file_signatures.class.php');
 
-    use CopySense\FileIdentifier\FileIdentifier;
+    use Tinram\FileIdentifier\FileIdentifier;
 
     $f = new FileIdentifier('mira.png');
     $r = $f->getResult();
@@ -41,7 +41,7 @@ The main uses of **File Identifier** are:
 
 ## File Signatures
 
-The file signature data (*classes/filesignatures.class.php*) contain a limited range of common file type signatures in hexadecimal bytes.
+The file signature data (*classes/file_signatures.class.php*) contain a limited range of common file type signatures in hexadecimal bytes.
 
 This data array can be easily extended with additional and custom file signatures.
 
