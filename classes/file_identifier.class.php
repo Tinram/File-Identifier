@@ -1,7 +1,6 @@
 <?php
 
-
-namespace CopySense\FileIdentifier;
+namespace Tinram\FileIdentifier;
 
 use RuntimeException;
 
@@ -14,38 +13,38 @@ final class FileIdentifier
         * Coded to PHP 5.4+
         *
         * Example usage:
-        *                require('classes/fileidentifier.class.php');
-        *                require('classes/filesignatures.class.php');
-        *                use CopySense\FileIdentifier\FileIdentifier;
+        *                require('classes/file_identifier.class.php');
+        *                require('classes/file_signatures.class.php');
+        *                use Tinram\FileIdentifier\FileIdentifier;
         *                $f = new FileIdentifier('x.png');
         *                $r = $f->getResult();
         *                echo $r['mimeinfo'] . PHP_EOL . $r['fileinfo'];
         *
-        * @author        Martin Latter <copysense.co.uk>
+        * @author        Martin Latter
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.23
-        * @license       GNU GPL v3.0
+        * @version       0.24
+        * @license       GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         * @link          https://github.com/Tinram/File-Identifier.git
         * @throws        RuntimeException
     */
 
 
-    /* @var integer $iFileBytesToRead number of header file bytes to read */
+    /* @var integer, number of header file bytes to read */
     private $iFileBytesToRead = 16;
 
-    /* @var array results holder with null defaults - provides output separation of file MIME info and byte info */
+    /* @var array, results holder with null defaults - provides output separation of file MIME info and byte info */
     private $aResults = ['mimeinfo' => null, 'fileinfo' => null];
 
-    /* @var string message */
+    /* @var string, message */
     private $sMimeTypeInfo = 'File MIME type: ';
 
-    /* @var string message */
+    /* @var string, message */
     private $sNoMimeInfo = 'No MIME type information.';
 
-    /* @var string message */
+    /* @var string, message */
     private $sFileMatch = 'File match found: ';
 
-    /* @var string message */
+    /* @var string, message */
     private $sNoFileMatch = 'No file match found.';
 
     /* @var string */
@@ -64,7 +63,7 @@ final class FileIdentifier
     private $sFileName = '';
 
 
-    public function __construct($sFile = NULL, $sClassName = 'FileSignatures', $sMethodName = 'getSignature', $sArrayName = 'aSignatures')
+    public function __construct($sFile = null, $sClassName = 'FileSignatures', $sMethodName = 'getSignature', $sArrayName = 'aSignatures')
     {
         $this->sClassName = $sClassName;
         $this->sMethodName = $sMethodName;
@@ -74,7 +73,9 @@ final class FileIdentifier
     }
 
 
-    public function __destruct() {}
+    public function __destruct()
+    {
+    }
 
 
     /**
@@ -121,8 +122,7 @@ final class FileIdentifier
         fclose($rHandle);
 
         $this->aResults = $this->process($this->sClassName);
-
-    } /* end loadFile() */
+    }
 
 
     /**
@@ -216,8 +216,7 @@ final class FileIdentifier
         }
 
         return $aParseResults;
-
-    } /* end fileProcess() */
+    }
 
 
     /**
@@ -230,5 +229,4 @@ final class FileIdentifier
     {
         echo $e->getMessage() . PHP_EOL . '(' . $e->getfile() . ', line ' . $e->getline() . ')' . PHP_EOL;
     }
-
-} /* end {} */
+}

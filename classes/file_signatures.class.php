@@ -5,10 +5,10 @@ final class FileSignatures
     /**
         * Static class to hold an array of file signature hex bytes.
         *
-        * @author        Martin Latter <copysense.co.uk>
+        * @author        Martin Latter
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.13
-        * @license       GNU GPL v3.0
+        * @version       0.14
+        * @license       GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         * @link          https://github.com/Tinram/File-Identifier.git
     */
 
@@ -116,5 +116,4 @@ final class FileSignatures
     {
         return self::$aSignatures;
     }
-
-} /* end {} */
+}

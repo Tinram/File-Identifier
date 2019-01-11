@@ -2,7 +2,7 @@
 
 /**
     * General example usage of FileIdentifier class.
-    * Martin Latter, 15/06/16
+    * Martin Latter, 15/06/2016
 */
 
 ###################################################
@@ -11,7 +11,7 @@ require('classes/file_signatures.class.php');
 ###################################################
 
 
-use CopySense\FileIdentifier\FileIdentifier;
+use Tinram\FileIdentifier\FileIdentifier;
 
 
 $oFileCheck = new FileIdentifier('file_examples/mira.png');

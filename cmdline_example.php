@@ -8,9 +8,9 @@
     *        php <thisfilename> <filename>
     *        ./<thisfilename> <filename>
     *
-    * @author        Martin Latter <copysense.co.uk>
+    * @author        Martin Latter
     * @copyright     Martin Latter 15/06/2016
-    * @version       0.14
+    * @version       0.15
     * @license       GNU GPL v3.0
     * @link          https://github.com/Tinram/File-Identifier.git
 */
@@ -22,7 +22,7 @@ require('classes/file_signatures.class.php');
 ###################################################
 
 
-use CopySense\FileIdentifier\FileIdentifier;
+use Tinram\FileIdentifier\FileIdentifier;
 
 
 if ( ! isset($_SERVER['argv'][1]))
