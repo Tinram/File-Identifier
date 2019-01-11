@@ -10,15 +10,15 @@
     *
     * @author        Martin Latter <copysense.co.uk>
     * @copyright     Martin Latter 15/06/2016
-    * @version       0.13
+    * @version       0.14
     * @license       GNU GPL v3.0
     * @link          https://github.com/Tinram/File-Identifier.git
 */
 
 
 ###################################################
-require('classes/fileidentifier.class.php');
-require('classes/filesignatures.class.php');
+require('classes/file_identifier.class.php');
+require('classes/file_signatures.class.php');
 ###################################################
 
 

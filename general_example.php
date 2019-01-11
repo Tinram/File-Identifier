@@ -6,9 +6,10 @@
 */
 
 ###################################################
-require('classes/fileidentifier.class.php');
-require('classes/filesignatures.class.php');
+require('classes/file_identifier.class.php');
+require('classes/file_signatures.class.php');
 ###################################################
+
 
 use CopySense\FileIdentifier\FileIdentifier;
 
