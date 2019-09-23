@@ -18,5 +18,5 @@ $oFileCheck = new FileIdentifier('file_examples/mira.png');
 $aResult = $oFileCheck->getResult();
 
 
-echo $aResult['mimeinfo'] . '<br>';
-echo $aResult['fileinfo'];
+echo $aResult['mimeinfo'] . PHP_EOL;
+echo $aResult['fileinfo'] . PHP_EOL;
