@@ -18,11 +18,11 @@ final class FileIdentifier
         *                use Tinram\FileIdentifier\FileIdentifier;
         *                $f = new FileIdentifier('x.png');
         *                $r = $f->getResult();
-        *                echo $r['mimeinfo'] . PHP_EOL . $r['fileinfo'];
+        *                echo $r['mimeinfo'] . PHP_EOL . $r['fileinfo'] . PHP_EOL;
         *
         * @author        Martin Latter
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.24
+        * @version       0.25
         * @license       GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         * @link          https://github.com/Tinram/File-Identifier.git
         * @throws        RuntimeException
@@ -56,7 +56,7 @@ final class FileIdentifier
     /* @var string */
     private $sMethodName = '';
 
-    /* @var string */
+    /* @var array */
     private $aArrayName = '';
 
     /* @var string */
@@ -91,7 +91,7 @@ final class FileIdentifier
 
 
     /**
-        * Attempt to load the file to be parsed, throw exception on access problem.
+        * Attempt to load the file to be parsed or throw exception on access problem.
     */
 
     private function loadFile()
@@ -170,7 +170,7 @@ final class FileIdentifier
         }
 
 
-        /* use PHP file MIME analysis if 'php_fileinfo' module available and enabled */
+        /* use PHP file MIME analysis if 'php_fileinfo' module is available and enabled */
         if (function_exists('finfo_file'))
         {
             $rFileInfo = finfo_open(FILEINFO_MIME_TYPE);
@@ -178,7 +178,7 @@ final class FileIdentifier
             finfo_close($rFileInfo);
         }
 
-        /* create byte sequence from read bytes to conform to signature format */
+        /* create byte sequence from read bytes to conform to the signature format */
         for ($i = 0, $iLen = strlen($this->sBytes); $i < $iLen; $i++)
         {
             $aByteSeq[] = bin2hex($this->sBytes[$i]);
