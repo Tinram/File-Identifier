@@ -1,8 +1,8 @@
 {
-    "name": "Tinram/File-Identifier",
+    "name": "tinram/file-identifier",
     "type": "library",
     "description": "A simple library to identify files through MIME types and file signatures.",
-    "homepage": "https://github.com/Tinram/File-Identifier",
+    "homepage": "https://github.com/tinram/file-identifier",
     "license": "GNU General Public License v3.0",
     "authors": [
         {
