@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tinram\FileIdentifier;
 
 use RuntimeException;
@@ -8,9 +10,9 @@ use RuntimeException;
 final class FileIdentifier
 {
     /**
-        * Class to identify a file through MIME type and file signature bytes.
+        * Identify a file through MIME type and file signature bytes.
         *
-        * Coded to PHP 5.4+
+        * Coded to PHP 7.2+
         *
         * Example usage:
         *                require('classes/file_identifier.class.php');
@@ -22,48 +24,57 @@ final class FileIdentifier
         *
         * @author        Martin Latter
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.25
+        * @version       0.26
         * @license       GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         * @link          https://github.com/Tinram/File-Identifier.git
         * @throws        RuntimeException
     */
 
 
-    /* @var integer, number of header file bytes to read */
+    /** @var integer $iFileBytesToRead, number of header file bytes to read */
     private $iFileBytesToRead = 16;
 
-    /* @var array, results holder with null defaults - provides output separation of file MIME info and byte info */
+    /** @var array<mixed> $aResults, results holder with null defaults - provides output separation of file MIME info and byte info */
     private $aResults = ['mimeinfo' => null, 'fileinfo' => null];
 
-    /* @var string, message */
+    /** @var string $sMimeTypeInfo, message */
     private $sMimeTypeInfo = 'File MIME type: ';
 
-    /* @var string, message */
+    /** @var string $sNoMimeInfo, message */
     private $sNoMimeInfo = 'No MIME type information.';
 
-    /* @var string, message */
+    /** @var string $sFileMatch, message */
     private $sFileMatch = 'File match found: ';
 
-    /* @var string, message */
+    /** @var string $sNoFileMatch, message */
     private $sNoFileMatch = 'No file match found.';
 
-    /* @var string */
+    /** @var mixed $sBytes */
     private $sBytes = '';
 
-    /* @var string */
+    /** @var string $sClassName */
     private $sClassName = '';
 
-    /* @var string */
+    /** @var string $sMethodName */
     private $sMethodName = '';
 
-    /* @var array */
-    private $aArrayName = '';
+    /** @var string $sArrayName */
+    private $sArrayName = '';
 
-    /* @var string */
+    /** @var mixed $sFileName */
     private $sFileName = '';
 
 
-    public function __construct($sFile = null, $sClassName = 'FileSignatures', $sMethodName = 'getSignature', $sArrayName = 'aSignatures')
+   /**
+        * Constructor.
+        *
+        * @param   string|null $sFile
+        * @param   string $sClassName
+        * @param   string $sMethodName
+        * @param   string $sArrayName
+    */
+
+    public function __construct(?string $sFile = null, string $sClassName = 'FileSignatures', string $sMethodName = 'getSignature', string $sArrayName = 'aSignatures')
     {
         $this->sClassName = $sClassName;
         $this->sMethodName = $sMethodName;
@@ -73,28 +84,23 @@ final class FileIdentifier
     }
 
 
-    public function __destruct()
-    {
-    }
-
-
     /**
         * Get file analysis results.
         *
-        * @return   string, message
+        * @return   array<string>, message
     */
 
-    public function getResult()
+    public function getResult(): array
     {
         return $this->aResults;
     }
 
 
     /**
-        * Attempt to load the file to be parsed or throw exception on access problem.
+        * Attempt to load the file to be parsed, or throw exception on access problem.
     */
 
-    private function loadFile()
+    private function loadFile(): void
     {
         try
         {
@@ -121,17 +127,17 @@ final class FileIdentifier
         $this->sBytes = fread($rHandle, $this->iFileBytesToRead);
         fclose($rHandle);
 
-        $this->aResults = $this->process($this->sClassName);
+        $this->aResults = $this->process();
     }
 
 
     /**
         * Process the file - search file signature bytes, and if PHP's file module is active, MIME types.
         *
-        * @return   associative array, MIME and byte information
+        * @return   array<string>, MIME and byte information
     */
 
-    private function process()
+    private function process(): array
     {
         $sMimeInfo = null;
         $sFileByteInfo = null;
@@ -154,9 +160,7 @@ final class FileIdentifier
             else
             {
                 $sMN = $this->sMethodName;
-
-                $aSignatures = call_user_func( [ $this->sClassName, $sMN ] );
-                    /* PHP 7 can resolve the following, PHP 5 cannot: $aSignatures = $this->sClassName::$sMN(); */
+                $aSignatures = $this->sClassName::$sMN();
 
                 if ( ! is_array($aSignatures))
                 {
@@ -168,7 +172,6 @@ final class FileIdentifier
         {
             self::reportException($e);
         }
-
 
         /* use PHP file MIME analysis if 'php_fileinfo' module is available and enabled */
         if (function_exists('finfo_file'))
@@ -185,7 +188,6 @@ final class FileIdentifier
         }
 
         $sB = join(' ', $aByteSeq);
-
 
         /* iterate over file signatures */
         foreach ($aSignatures as $sName => $sSig)
@@ -225,8 +227,8 @@ final class FileIdentifier
         * @param    RuntimeException $e
     */
 
-    private static function reportException(RuntimeException $e)
+    private static function reportException(RuntimeException $e): void
     {
-        echo $e->getMessage() . PHP_EOL . '(' . $e->getfile() . ', line ' . $e->getline() . ')' . PHP_EOL;
+        echo $e->getMessage() . PHP_EOL . '(' . $e->getFile() . ', line ' . $e->getLine() . ')' . PHP_EOL;
     }
 }

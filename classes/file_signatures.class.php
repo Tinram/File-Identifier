@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 final class FileSignatures
 {
     /**
@@ -7,11 +9,12 @@ final class FileSignatures
         *
         * @author        Martin Latter
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.14
+        * @version       0.15
         * @license       GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         * @link          https://github.com/Tinram/File-Identifier.git
     */
 
+    /** @var array<string> $aSignatures */
     private static $aSignatures =
     [
         /**
@@ -109,10 +112,10 @@ final class FileSignatures
     /**
         * Return class array.
         *
-        * @return   array, file signatures
+        * @return   array<string>, file signatures
     */
 
-    public static function getSignature()
+    public static function getSignature(): array
     {
         return self::$aSignatures;
     }
