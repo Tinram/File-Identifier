@@ -3,7 +3,7 @@
     "type": "library",
     "description": "A simple library to identify files through MIME types and file signatures.",
     "homepage": "https://github.com/tinram/file-identifier",
-    "license": "GNU General Public License v3.0",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Martin Latter",
