@@ -1,0 +1,23 @@
+{
+    "name": "Tinram/File-Identifier",
+    "type": "library",
+    "description": "A simple library to identify files through MIME types and file signatures.",
+    "homepage": "https://github.com/Tinram/File-Identifier",
+    "license": "GNU General Public License v3.0",
+    "authors": [
+        {
+            "name": "Martin Latter",
+            "homepage": "https://tinram.github.io/",
+            "role": "Developer"
+        }
+    ],
+    "keywords": ["file-signature ","file-identification","magic-bytes","files"],
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tinram\\File-Identifier\\": "src"
+        }
+    }
+}
