@@ -14,14 +14,6 @@ final class FileIdentifier
         *
         * Coded to PHP 7.2+
         *
-        * Example usage:
-        *                require('classes/file_identifier.class.php');
-        *                require('classes/file_signatures.class.php');
-        *                use Tinram\FileIdentifier\FileIdentifier;
-        *                $f = new FileIdentifier('x.png');
-        *                $r = $f->getResult();
-        *                echo $r['mimeinfo'] . PHP_EOL . $r['fileinfo'] . PHP_EOL;
-        *
         * @author        Martin Latter
         * @copyright     Martin Latter 04/05/2016
         * @version       0.26

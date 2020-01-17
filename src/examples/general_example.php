@@ -8,8 +8,8 @@
 declare(strict_types=1);
 
 ###################################################
-require('classes/file_identifier.class.php');
-require('classes/file_signatures.class.php');
+require('../FileIdentifier.php');
+require('../FileSignatures.php');
 ###################################################
 
 use Tinram\FileIdentifier\FileIdentifier;
