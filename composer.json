@@ -11,7 +11,7 @@
             "role": "Developer"
         }
     ],
-    "keywords": ["file-signature ","file-identification","magic-bytes","files"],
+    "keywords": ["file-signature","file-identification","magic-bytes","files"],
     "require": {
         "php": ">=7.2.0"
     },
