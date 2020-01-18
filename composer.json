@@ -17,10 +17,12 @@
         "php": ">=7.2.0"
     },
     "autoload": {
-        "classmap": [
-            "vendor/tinram/file-identifier/src/FileIdentifier.php",
-            "vendor/tinram/file-identifier/src/FileSignatures.php",
-            "vendor/tinram/file-identifier/src"
+        "psr-4": {
+            "Tinram\\File-Identifier\\": "src/"
+        },
+        "files": [
+            "src/FileIdentifier.php",
+            "src/FileSignatures.php"
         ]
     }
 }
