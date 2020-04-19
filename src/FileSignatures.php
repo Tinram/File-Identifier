@@ -9,7 +9,7 @@ final class FileSignatures
         *
         * @author        Martin Latter
         * @copyright     Martin Latter 04/05/2016
-        * @version       0.15
+        * @version       0.16
         * @license       GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         * @link          https://github.com/Tinram/File-Identifier.git
     */
@@ -85,6 +85,7 @@ final class FileSignatures
         'TTF' => '00 01 00 00 00',
         'Unicode BOM' => 'ef bb bf',
         'WAR (Web Archive)' => '50 4b 03 04 14',
+        'WebP image' => '52 49 46 46 08 8c 00 00 57 45 42 50',
         'WMA / WMV' => '30 26 b2 75 8e 66 cf',
         'WMF' => 'd7 cd c6 9a',
         'XCF (GIMP)' => '67 69 6d 70 20 78 63 66 20',
